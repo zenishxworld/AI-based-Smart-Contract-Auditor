@@ -68,6 +68,12 @@ const Index: React.FC = () => {
           </p>
         </div>
       </div>
+      
+      <footer className="w-full py-6 mt-auto text-center text-gray-400 text-sm z-10 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+        <div className="container mx-auto">
+          <p>© 2025 AuditAI. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 };
