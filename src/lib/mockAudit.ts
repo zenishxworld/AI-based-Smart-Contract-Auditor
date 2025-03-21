@@ -20,6 +20,7 @@ export interface AuditReport {
     otherKeyAreas: number;
   };
   findings: Finding[];
+  suggestions?: string[];
 }
 
 export const generateMockAudit = (code: string): AuditReport => {
@@ -89,6 +90,13 @@ export const generateMockAudit = (code: string): AuditReport => {
         description: "The contract and its functions lack comprehensive documentation, making it difficult for users and developers to understand their purpose and behavior.",
         suggestion: "Add NatSpec comments to document the contract and all public/external functions."
       }
+    ],
+    suggestions: [
+      "Add comprehensive NatSpec documentation to all public and external functions.",
+      "Implement events for all significant state changes to improve off-chain observability.",
+      "Consider using OpenZeppelin's SafeMath library for arithmetic operations to prevent potential overflows.",
+      "Follow the checks-effects-interactions pattern to prevent reentrancy vulnerabilities.",
+      "Cache frequently accessed storage variables in memory to reduce gas costs."
     ]
   };
 };

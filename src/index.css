@@ -90,6 +90,47 @@
   .text-gradient {
     @apply bg-gradient-to-r from-audit-blue to-audit-purple bg-clip-text text-transparent;
   }
+
+  @keyframes wave {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateY(-5%) translateX(3%);
+    }
+  }
+
+  @keyframes wave-reverse {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateY(5%) translateX(-3%);
+    }
+  }
+
+  .animate-wave {
+    animation: wave 15s ease-in-out infinite;
+  }
+
+  .animate-wave-reverse {
+    animation: wave-reverse 18s ease-in-out infinite;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
 }
 
 .wave-container {
