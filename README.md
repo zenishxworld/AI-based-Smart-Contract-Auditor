@@ -49,3 +49,6 @@ This project is built with .
 - React
 - shadcn-ui
 - Tailwind CSS
+  
+## Show preview
+https://auditai-scan.lovable.app/
