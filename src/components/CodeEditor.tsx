@@ -71,7 +71,7 @@ contract AuditAI {
           <div className="mx-auto text-xs text-gray-400">solidity.sol</div>
         </div>
         
-        {/* Code editor content - completely redesigned for better text selection and cursor visibility */}
+        {/* Code editor content - fixed for proper text selection */}
         <div className="bg-black/70 backdrop-blur-md relative" style={{ minHeight: '400px' }}>
           <Textarea
             value={code}
@@ -82,6 +82,10 @@ contract AuditAI {
               caretColor: 'white',
               color: 'white',
               lineHeight: '1.5',
+              userSelect: 'text',
+              WebkitUserSelect: 'text',
+              MozUserSelect: 'text',
+              msUserSelect: 'text',
             }}
           />
           
