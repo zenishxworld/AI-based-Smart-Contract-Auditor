@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { ArrowRight } from 'lucide-react';
+import { Textarea } from './ui/textarea';
 
 const CodeEditor: React.FC = () => {
   const [code, setCode] = useState<string>(
@@ -70,29 +71,23 @@ contract AuditAI {
           <div className="mx-auto text-xs text-gray-400">solidity.sol</div>
         </div>
         
-        {/* Code editor content */}
-        <div className="bg-black/70 backdrop-blur-md overflow-hidden relative" style={{ minHeight: '400px' }}>
-          {/* Pre block is now just for displaying the code as styled text */}
-          <pre className="line-numbers h-full m-0 overflow-auto p-4 pointer-events-none absolute top-0 left-0 w-full" style={{ backgroundColor: 'transparent' }}>
-            <code className="language-solidity text-white">{code}</code>
-          </pre>
-          
-          {/* Textarea now on top with a slightly visible background to show cursor */}
-          <textarea
+        {/* Code editor content - completely redesigned for better text selection and cursor visibility */}
+        <div className="bg-black/70 backdrop-blur-md relative" style={{ minHeight: '400px' }}>
+          <Textarea
             value={code}
             onChange={(e) => setCode(e.target.value)}
-            className="absolute top-0 left-0 w-full h-full p-4 bg-transparent text-white/10 font-mono resize-none focus:outline-none caret-white z-10"
+            className="font-mono text-white w-full h-full min-h-[400px] p-4 resize-none bg-transparent border-none focus-visible:ring-0 focus-visible:outline-none"
             spellCheck="false"
-            style={{ 
+            style={{
               caretColor: 'white',
-              color: 'rgba(255,255,255,0.1)',
-              fontFamily: 'monospace',
-              fontSize: 'inherit',
-              lineHeight: 'inherit'
+              color: 'white',
+              lineHeight: '1.5',
             }}
           />
           
-          <div className="absolute bottom-2 right-2 text-xs text-gray-500 z-20">{code.split('\n').length} lines</div>
+          <div className="absolute bottom-2 right-2 text-xs text-gray-500 z-20 bg-black/30 px-2 py-1 rounded">
+            {code.split('\n').length} lines
+          </div>
         </div>
       </div>
 
