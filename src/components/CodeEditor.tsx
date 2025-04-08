@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { ArrowRight } from 'lucide-react';
@@ -72,16 +72,27 @@ contract AuditAI {
         
         {/* Code editor content */}
         <div className="bg-black/70 backdrop-blur-md overflow-hidden relative" style={{ minHeight: '400px' }}>
-          <pre className="line-numbers h-full m-0 overflow-auto p-4" style={{ backgroundColor: 'transparent' }}>
+          {/* Pre block is now just for displaying the code as styled text */}
+          <pre className="line-numbers h-full m-0 overflow-auto p-4 pointer-events-none absolute top-0 left-0 w-full" style={{ backgroundColor: 'transparent' }}>
             <code className="language-solidity text-white">{code}</code>
           </pre>
+          
+          {/* Textarea now on top with a slightly visible background to show cursor */}
           <textarea
             value={code}
             onChange={(e) => setCode(e.target.value)}
-            className="absolute top-0 left-0 w-full h-full opacity-0 cursor-text p-4"
+            className="absolute top-0 left-0 w-full h-full p-4 bg-transparent text-white/10 font-mono resize-none focus:outline-none caret-white z-10"
             spellCheck="false"
+            style={{ 
+              caretColor: 'white',
+              color: 'rgba(255,255,255,0.1)',
+              fontFamily: 'monospace',
+              fontSize: 'inherit',
+              lineHeight: 'inherit'
+            }}
           />
-          <div className="absolute bottom-2 right-2 text-xs text-gray-500">{code.split('\n').length} lines</div>
+          
+          <div className="absolute bottom-2 right-2 text-xs text-gray-500 z-20">{code.split('\n').length} lines</div>
         </div>
       </div>
 
