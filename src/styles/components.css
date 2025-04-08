@@ -1,0 +1,45 @@
+
+@tailwind components;
+
+@layer components {
+  .glass-card {
+    @apply bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.5)];
+  }
+
+  .input-glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-lg text-white px-4 py-2 outline-none focus:ring-2 focus:ring-audit-blue/50 transition-all duration-300;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-audit-blue to-audit-purple text-white font-medium rounded-lg px-6 py-3 transform transition-all duration-300 hover:scale-105 hover:shadow-[0_5px_15px_rgba(45,156,219,0.4)] focus:outline-none;
+  }
+  
+  .code-editor {
+    @apply w-full h-[400px] rounded-xl border border-white/10 bg-black/70 backdrop-blur-lg text-white font-mono p-4 overflow-auto;
+  }
+  
+  .metric-circle {
+    @apply relative w-24 h-24 flex items-center justify-center;
+  }
+  
+  .metric-value {
+    @apply absolute text-lg font-bold;
+  }
+}
+
+.wave-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.wave {
+  position: absolute;
+  height: 100%;
+  width: 200%;
+  opacity: 0.5;
+}
